@@ -3,6 +3,7 @@
 * {
     font-family: 'Bebas Neue', sans-serif;
     color: #422311;
+
 }
 
 .headerContainer {
@@ -30,6 +31,7 @@
 .landingPageSection {
   width: 100vw;
   height: 100vh;
+  margin-bottom: 40px;
 }
 
 
@@ -65,7 +67,7 @@
     background-color: white;
     font-family: 'Arimo', sans-serif;
     border: 2px solid #6b431a;
-  
+
   }
   
   /* .shopDiv:hover {
