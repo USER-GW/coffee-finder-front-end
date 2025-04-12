@@ -1,14 +1,13 @@
-.signupContainer {
+.signinContainer {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 3rem;
-    min-height: 100vh;
     font-family: 'Poppins', sans-serif;
   }
   
-  .signupForm {
+  .signInForm {
     background-color: white;
     padding: 2.5rem;
     border-radius: 12px;
@@ -17,19 +16,13 @@
     max-width: 500px;
   }
   
-  .signupForm h1 {
+  .signInForm h1 {
     text-align: center;
     margin-bottom: 2rem;
     color: #422311;
   }
   
   .formGroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-  }
-
-  .formButtons {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
@@ -54,6 +47,38 @@
     outline: none;
   }
   
+  .signinButton,
+  .cancel {
+    padding: 0.75rem;
+    font-size: 1rem;
+    background-color: #8f8f66;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #555;
+  }
+  
+  .signinButton:disabled {
+    background-color: #d69940;;
+    cursor: not-allowed;
+  }
+  
+  .signinButton:hover:not(:disabled),
+  .cancel:hover {
+    background-color: #d69940;;
+  }
+  
+  .cancel {
+    background-color: #555;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
   .Error {
     color: #bd2b2b;
     background: #ffe2e2;
@@ -61,41 +86,5 @@
     border-radius: 8px;
     margin-bottom: 1.5rem;
     text-align: center;
-  }
-  
-  .formButtons {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  button {
-    flex: 1;
-    padding: 0.75rem;
-    font-size: 1rem;
-    background-color: #d69940;;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-  }
-  
-  button:disabled {
-    background-color: #d69940;;
-    cursor: not-allowed;
-  }
-  
-  button:hover:not(:disabled) {
-    background-color: #555;
-  }
-  
-  .cancel{
-    background-color: #888;
-  }
-  
-  .cancle:hover {
-    background-color: #555;
   }
   

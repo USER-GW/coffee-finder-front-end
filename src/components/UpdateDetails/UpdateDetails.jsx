@@ -5,6 +5,7 @@ import styles from './UpdateDetails.module.css';
 import { UserContext } from '../../contexts/UserContext';
 
 
+
 const UpdateDetails = (props) => {
   const { _id } = useParams();
     const { user } = useContext(UserContext);

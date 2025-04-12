@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { signIn } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
+import styles from './SignInForm.module.css';
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -32,14 +33,16 @@ const SignInForm = () => {
     }
   };
 
-
   return (
-    <div>
-      <h1>Sign In</h1>
-      <p>{message}</p>
-      <form autoComplete="off"onSubmit={handleSubmit}>
+    <div className={styles.signinContainer}>
+      <form autoComplete="off" onSubmit={handleSubmit} className={styles.signInForm}>
+        <h1>Sign In</h1>
+        
+        {/* Error Message */}
+        {message && <p className={styles.Error}>{message}</p>}
 
-        <div>
+        {/* Email */}
+        <div className={styles.formGroup}>
           <label htmlFor='email'>Email:</label>
           <input
             type='email'
@@ -50,7 +53,9 @@ const SignInForm = () => {
             required
           />
         </div>
-        <div>
+
+        {/* Password */}
+        <div className={styles.formGroup}>
           <label htmlFor='password'>Password:</label>
           <input
             type='password'
@@ -61,7 +66,9 @@ const SignInForm = () => {
             required
           />
         </div>
-        <div>
+
+        {/* Confirm Password (only needed if you're handling confirmPassword logic) */}
+        <div className={styles.formGroup}>
           <label htmlFor='confirmPassword'>Confirm Password:</label>
           <input
             type='password'
@@ -72,8 +79,24 @@ const SignInForm = () => {
             required
           />
         </div>
-        <button >Sign In</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className={styles.signinButton}
+          disabled={!email || !password || !confirmPassword}
+        >
+          Sign In
+        </button>
+
+        {/* Cancel Button */}
+        <button
+          type="button"
+          className={styles.cancel}
+          onClick={() => navigate('/')}
+        >
+          Cancel
+        </button>
       </form>
     </div>
   );

@@ -31,8 +31,9 @@ const LandingPage = (props) => {
     
     <>
     <main className={styles.mainContainer}>
-    
-          <h2 className= {styles.userMessage}>Welcome, {user?.firstName} ✌️</h2>
+      <div className={styles.headerContainer}>
+    <h1 className = {styles.name}>Bean LDN</h1>
+    </div>
       <div className={styles.search}>
         <form onSubmit={handleSearch}>
           <input

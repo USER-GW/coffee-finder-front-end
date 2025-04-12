@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { signUp } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
+import styles from './SignUpForm.module.css';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -44,69 +45,46 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <p>{message}</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='firstName'>First Name:</label>
-          <input
-            type='text'
-            id='firstName'
-            value={firstName}
-            name='firstName'
-            onChange={handleChange}
-            required
-          />
+    <>
+    <main className={styles.mainContainer}>
+    <div className={styles.signupContainer}>
+      <form onSubmit={handleSubmit} className={styles.signupForm}>
+        <h1>Create Account</h1>
+        {message && <p className={styles.Error}>{message}</p>}
+
+        <div className={styles.formGroup}>
+          <label htmlFor='firstName'>First Name</label>
+          <input type='text' id='firstName' name='firstName' value={firstName} onChange={handleChange} required />
         </div>
-        <div>
-          <label htmlFor='lastName'>Last Name:</label>
-          <input
-            type='text'
-            id='lastName'
-            value={lastName}
-            name='lastName'
-            onChange={handleChange}
-            required
-          />
+
+        <div className={styles.formGroup}>
+          <label htmlFor='lastName'>Last Name</label>
+          <input type='text' id='lastName' name='lastName' value={lastName} onChange={handleChange} required />
         </div>
-        <div>
-          <label htmlFor='email'>Email:</label>
-          <input
-            type='email'
-            id='email'
-            value={email}
-            name='email'
-            onChange={handleChange}
-            required
-          />
+
+        <div className={styles.formGroup}>
+          <label htmlFor='email'>Email</label>
+          <input type='email' id='email' name='email' value={email} onChange={handleChange} required />
         </div>
-        <div>
-          <label htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            id='password'
-            value={password}
-            name='password'
-            onChange={handleChange}
-            required
-          />
+
+        <div className={styles.formGroup}>
+          <label htmlFor='password'>Password</label>
+          <input type='password' id='password' name='password' value={password} onChange={handleChange} required />
         </div>
-        <div>
-          <label htmlFor='confirmPassword'>Confirm Password:</label>
-          <input
-            type='password'
-            id='confirmPassword'
-            value={confirmPassword}
-            name='confirmPassword'
-            onChange={handleChange}
-            required
-          />
+
+        <div className={styles.formGroup}>
+          <label htmlFor='confirmPassword'>Confirm Password</label>
+          <input type='password' id='confirmPassword' name='confirmPassword' value={confirmPassword} onChange={handleChange} required />
         </div>
-        <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
+
+        <div className={styles.formButtons}>
+          <button type="submit" disabled={isFormInvalid()}>Sign Up</button>
+          <button type="button" className= {styles.cancel} onClick={() => navigate('/')}>Cancel</button>
+        </div>
       </form>
     </div>
+    </main>
+    </>
   );
 };
 

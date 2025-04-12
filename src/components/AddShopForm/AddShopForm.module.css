@@ -6,8 +6,7 @@
     align-items: center;
     min-height: 100vh;
     padding: 2rem;
-  
-
+    background-color: #ece7db;
 
   }
   
@@ -20,7 +19,7 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
   }
   
   .addShopForm label {
@@ -28,7 +27,7 @@
     flex-direction: column;
     font-weight: 600;
     color: #4a3f35;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   
   .addShopForm input[type="text"],
@@ -49,12 +48,12 @@
   .addShopForm button {
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background: #e3b17f;
     color: white;
     font-weight: bold;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1rem;
+    background: #e3b17f;
+    font-size: 2rem;
   }
   

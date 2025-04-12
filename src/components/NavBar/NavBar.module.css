@@ -1,95 +1,117 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Blaka+Hollow&family=Geist:wght@100..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Jacquard+12+Charted&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shizuru&family=Sixtyfour+Convergence&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Blaka+Hollow&family=Geist:wght@100..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Jacquard+12+Charted&family=Notable&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shizuru&family=Sixtyfour+Convergence&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
 
 .navBar {
-    display: flex;
-    width: 100%;
-    text-decoration: none;
-    align-items: right;
-    justify-content: center;
-    font-family: 'Arimo', sans-serif;
-     color: #422311;
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  justify-content: center;
+  font-family: 'Arimo', sans-serif;
+  color: #422311;
+  background-color: #ece7db;
+}
 
-  }
-  
-  .navbarContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items: right;
-    padding: 0 20px;
+.logo {
+  width: 100px;
+  height: 100px;
+  margin: 0;
+}
 
-  }
-  a {
-    color: #4a3f35;
-    text-decoration: none
-  }
-  
-  .navbarContainer ul {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    justify-content: right;
-    list-style: none;
-    gap: 20px;
-    padding: 0;
+.navbarContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  padding: 0 20px;
+}
 
-  }
-  .addCoffeeshop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 0.5rem 1rem;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .dropdown {
-    position: relative;
+.navbarContainer .userMessage {
+  font-family: 'Arimo', sans-serif;
+  color: #000;
+  font-weight: 500;
+  font-size: 1.5rem;
+  list-style: none;
+  font-style: italic;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 30%;
+}
 
-  }
-  
-  .dropdownToggle {
-    cursor: pointer;
-    display: inline-block;
-    padding: 0.5rem;
-  }
-  
-  .dropdownMenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+a {
+  color: #4a3f35;
+  text-decoration: none;
+}
 
-  }
-  
-  .dropdownItems {
-    display: none;
-    height: 30px;
-    white-space: nowrap;
-    background-color: white;
-    list-style: none;
-    margin: 0;
-  }
-  
-  .dropdown:hover .dropdownItems{
-    display: block;
-    gap: 20px;
-    padding: 0.5rem;
-  }
+.navbarContainer ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: right;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+}
 
-  .addCoffeeshop:hover {
-    background-color:#e3b17f;
-    color: white;
-  }
+.addCoffeeshop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.5rem 1rem;
+  background-color: #8f8f66;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-  
-  
+.addCoffeeshop:hover {
+  background-color: #d69940;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem;
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ece7db;
+  padding: 0.5rem;
+  gap: 10px;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dropdown:hover .dropdownMenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.dropdownItem {
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  background-color: #ece7db;
+  cursor: pointer;
+  border-radius: 4px;
+
+}
+
+.dropdownItem:hover {
+  background-color: #d69940;
+  color: white;
+
+}

@@ -31,8 +31,8 @@ const CoffeeDetails = (props) => {
        <>
        <main className={styles.mainContainer}>
     <div className={styles.detailsContainer}>
-  <h2 className={styles.shopDetails}>{coffeeDeets.name}, {coffeeDeets.location}</h2>
-  <h2>Details:</h2>
+  <h2 className={styles.shopDetails}>{coffeeDeets.name} - <span> {coffeeDeets.location} </span></h2>
+
   <div className={styles.detailList}>
     <p className={styles.detailItem}>☕️ <span>Quality:</span> {coffeeDeets.coffeeData.Quality}</p>
     <p className={styles.detailItem}>☺️ <span>Staff:</span> {coffeeDeets.coffeeData.Staff}</p>

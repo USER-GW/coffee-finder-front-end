@@ -18,14 +18,15 @@ const NavBar = () => {
   
       <nav className={styles.navBar}>
         <div className={styles.navbarContainer}>
-        <img className={styles.logo} src="public/logo.jpg" alt="Logo" />
           <ul>
             <li>
               <Link to="/">Main Menu</Link>
             </li>
 
             {user ? (
+              
               <>
+          
                 <li className={styles.addCoffeeshop}>
                   <Link to="/add">Add a Coffee Shop</Link>
                 </li>
@@ -33,7 +34,7 @@ const NavBar = () => {
                 
                 <li className={styles.dropdown}>
                   
-                  <span className={styles.dropdownToggle}> Account</span>
+                  <span className={styles.dropdownToggle}> {user?.firstName}'s Account</span>
                   <ul className={styles.dropdownMenu}>
 
                     <li className={styles.dropdownItems}>
