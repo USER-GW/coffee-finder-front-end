@@ -23,7 +23,7 @@ const App = () => {
   useEffect(() => {
     const fetchAllCoffee = async () => {
       const coffeeShop = await coffeeService.index();
-      setCoffeeShop(coffeeShop); // Store the fetched data
+      setCoffeeShop(coffeeShop);
     };
     
     fetchAllCoffee();
@@ -55,7 +55,7 @@ const App = () => {
       console.log(deletedUser);
       navigate('/');
   }
-//CLEAR LOCAL STORAGE
+
 
   
   return (

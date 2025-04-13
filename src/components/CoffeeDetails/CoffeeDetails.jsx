@@ -2,13 +2,16 @@ import styles from './CoffeeDetails.module.css';
 import { useNavigate } from 'react-router';
 import { useParams, Link } from 'react-router';
 import * as coffeeService from '../../services/coffeeService';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
+
 
 
 const CoffeeDetails = (props) => {
     const navigate = useNavigate();
     const { _id } = useParams();
     const [coffeeDeets, setCoffeedeets] = useState(null);
+    const { user, setUser } = useContext(UserContext);
 
     useEffect(() => {
         const fetchCoffee = async () => {
@@ -24,7 +27,7 @@ const CoffeeDetails = (props) => {
      fetchCoffee();
       }, [_id]);
     
-      if (!coffeeDeets) return <div>Loading...</div>;
+      if (!coffeeDeets) return <div className={styles.loading}>Loading...</div>;
 
      
     return (
@@ -50,9 +53,27 @@ const CoffeeDetails = (props) => {
   </div>
 
 </div>
-<div className={styles.buttonContainer}>
-<button className={styles.addReviewBtn} onClick={() => navigate(`/review/${coffeeDeets._id}`)}>Add Review</button>
-</div>
+
+{user ? (
+  <div className={styles.buttonContainer}>
+    <button
+      className={styles.addReviewBtn}
+      onClick={() => navigate(`/review/${coffeeDeets._id}`)}
+    >
+      Add Review
+    </button>
+  </div>
+) : (
+    <div className={styles.buttonContainer}>
+    <button
+      className={styles.login}
+      onClick={() => navigate("/sign-in/")}
+    >
+      Sign In to Add Review
+    </button>
+  </div>
+)}
+
 </main>
        </>
  

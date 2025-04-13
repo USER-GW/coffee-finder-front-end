@@ -101,7 +101,11 @@ const UpdateDetails = (props) => {
           />
         </label>
       ))}
-      <button type="submit" className={styles.submitButton}>Add Review!</button>
+  
+  <button type="submit" className={styles.submitButton}>
+    Add Review!
+  </button> 
+
     </form>
   </main>
   );

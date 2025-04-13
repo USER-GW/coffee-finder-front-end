@@ -184,7 +184,6 @@
     border-radius: 20px;
     border: 1px solid rgb(220, 220, 220);
     padding: 20px;
-  
     margin: 20px;
     background-color: #ffffff;
     transition: all 0.3s ease;
@@ -194,7 +193,7 @@
 
   .searchInput:focus {
     outline: none;
-    box-shadow: 0 0 30px #b7b7b78e;
+ 
   }
 
   .searchButton {
@@ -203,7 +202,6 @@
     border-radius: 20px;
     border: 1px solid rgb(220, 220, 220);
     padding: 10px;  
-    background-color: #ffffff;
     color: #000000;
     font-size: 20px;
     font-weight: bold;
@@ -211,6 +209,9 @@
     background-color: #d69940;
   }
 
+    .searchButton :hover {
+        background-color: #8f8f66;
+    }
 
     body {
         background-color: #ece7db;

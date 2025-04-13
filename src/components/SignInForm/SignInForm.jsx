@@ -38,10 +38,10 @@ const SignInForm = () => {
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.signInForm}>
         <h1>Sign In</h1>
         
-        {/* Error Message */}
+     
         {message && <p className={styles.Error}>{message}</p>}
 
-        {/* Email */}
+       
         <div className={styles.formGroup}>
           <label htmlFor='email'>Email:</label>
           <input
@@ -54,7 +54,7 @@ const SignInForm = () => {
           />
         </div>
 
-        {/* Password */}
+     
         <div className={styles.formGroup}>
           <label htmlFor='password'>Password:</label>
           <input
@@ -67,7 +67,7 @@ const SignInForm = () => {
           />
         </div>
 
-        {/* Confirm Password (only needed if you're handling confirmPassword logic) */}
+     
         <div className={styles.formGroup}>
           <label htmlFor='confirmPassword'>Confirm Password:</label>
           <input
@@ -80,7 +80,7 @@ const SignInForm = () => {
           />
         </div>
 
-        {/* Submit Button */}
+        
         <button
           type="submit"
           className={styles.signinButton}
@@ -89,7 +89,7 @@ const SignInForm = () => {
           Sign In
         </button>
 
-        {/* Cancel Button */}
+      
         <button
           type="button"
           className={styles.cancel}
