@@ -7,6 +7,8 @@
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
   }
+
+ 
   
   .signupForm {
     background-color: white;
@@ -19,14 +21,18 @@
   
   .signupForm h1 {
     text-align: center;
-    margin-bottom: 2rem;
     color: #422311;
+  }
+  .userNameNote {
+    font-size: 0.8rem;
+    color: #a46f4e;
+    font-style: italic;
   }
   
   .formGroup {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .formButtons {
@@ -88,11 +94,11 @@
   }
   
   button:hover:not(:disabled) {
-    background-color: #555;
+    background-color: #8f8f66;
   }
   
   .cancel{
-    background-color: #888;
+    background-color: rgb(165, 165, 165)!important;
   }
   
   .cancle:hover {

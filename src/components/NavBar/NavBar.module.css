@@ -3,17 +3,9 @@
 .navBar {
   display: flex;
   width: 100%;
-  text-decoration: none;
   justify-content: center;
   font-family: 'Arimo', sans-serif;
-  color: #422311;
   background-color: #ece7db;
-}
-
-.logo {
-  width: 100px;
-  height: 100px;
-  margin: 0;
 }
 
 .navbarContainer {
@@ -24,18 +16,19 @@
   padding: 0 20px;
 }
 
-.navbarContainer .userMessage {
-  font-family: 'Arimo', sans-serif;
-  color: #000;
-  font-weight: 500;
-  font-size: 1.5rem;
-  list-style: none;
-  font-style: italic;
+.navbarContainer ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
-  width: 30%;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+}
+
+.navbarContainer ul li {
+  flex-shrink: 0;
 }
 
 a {
@@ -43,22 +36,10 @@ a {
   text-decoration: none;
 }
 
-.navbarContainer ul {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: right;
-  list-style: none;
-  gap: 20px;
-  padding: 0;
-}
-
 .addCoffeeshop {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   padding: 0.5rem 1rem;
   background-color: #8f8f66;
   border-radius: 4px;
@@ -71,47 +52,54 @@ a {
   color: white;
 }
 
+/* DROPDOWN */
+
 .dropdown {
   position: relative;
+  list-style: none;
 }
 
 .dropdownToggle {
   cursor: pointer;
-  display: inline-block;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  font-weight: bold;
+  position: relative;
 }
 
 .dropdownMenu {
-  display: flex;
-  flex-direction: column;
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: #ece7db;
-  padding: 0.5rem;
-  gap: 10px;
-  z-index: 10;
-  visibility: hidden;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 2rem 0;
+  min-width: 230px;
+  width: max-content;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block; 
+  z-index: 999;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all 0.2s ease;
 }
 
 .dropdown:hover .dropdownMenu {
-  visibility: visible;
   opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .dropdownItem {
-  white-space: nowrap;
-  padding: 0.5rem 1rem;
-  background-color: #ece7db;
-  cursor: pointer;
-  border-radius: 4px;
-
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  text-align: left;
+  background: none;
+  font-weight: 500;
+  color: #4a3f35;
+  transition: background-color 0.2s ease;
 }
 
-.dropdownItem:hover {
-  background-color: #d69940;
-  color: white;
 
-}

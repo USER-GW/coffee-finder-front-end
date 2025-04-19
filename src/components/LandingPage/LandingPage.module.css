@@ -1,220 +1,342 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Blaka+Hollow&family=Geist:wght@100..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Jacquard+12+Charted&family=Notable&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shizuru&family=Sixtyfour+Convergence&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap" rel="stylesheet');
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Blaka+Hollow&family=Geist:wght@100..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Jacquard+12+Charted&family=Notable&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shizuru&family=Sixtyfour+Convergence&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
 
+/* Global Styles */
 * {
-    font-family: 'Bebas Neue', sans-serif;
-    color: #422311;
-
+  font-family: 'Bebas Neue', sans-serif;
+  color: #422311;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: #ece7db;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
 .headerContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-    padding: 2rem;
-    background-color: #ece7db;
-    text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 2rem;
+  background-color: #ece7db;
+  text-align: center;
 }
 
 .name {
-    font-size: 200px;
-    font-weight:700;
-    color: #bd5a28;
-    width: 100%;
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 3rem; 
-  }
+  font-weight: 800;
+  color: #bd5a28;
+  width: 100%;
+  text-align: center;
+  font-size: 8rem;
+  letter-spacing: 1rem;
+  transform: scaleY(1.9); 
+  display: inline-block; 
+  
+
+}
+
+.sloganContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: none;
+}
+.slogan {
+  font-size:2.5rem;
+  color: #7b6c53;
+  transform: scaleX(1.2); 
+  font-weight: 500;
+}
 
 
+/* Landing Section */
 .landingPageSection {
   width: 100vw;
   height: 100vh;
   margin-bottom: 40px;
 }
 
-
+/* Shop Section */
 .shopContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   flex-direction: row;
-
+  gap: 20px;
   width: 100%;
   height: 100%;
-   gap: 20px;
-  flex-wrap: wrap;
   margin-bottom: 100px;
-  
-  
 }
 
 .shopDiv {
-    position: relative;
-    width: 450px;
-    height: 450px;
-    padding: 2rem;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  padding: 2rem;
+  background-color: white;
+  border: 2px solid #6b431a;
+  color: #4a3f35;
+  font-size: 1.1rem;
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2px;
+}
 
-    color: #4a3f35;
-    font-size: 1.1rem;
-    text-align: center;
- 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.shopDiv h2,
+.shopDiv p,
+.shopDiv .rating {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #5c4e44;
+}
 
-    background-color: white;
-    font-family: 'Arimo', sans-serif;
-    border: 2px solid #6b431a;
+.shopDiv h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 0;
+}
 
-  }
-  
-  /* .shopDiv:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  } */
-  
-  .shopDiv h2 {
-    font-size: 3rem;
-    margin-top: 0;
-    font-weight: 700;
-    color: #5c4e44;
-    font-family: 'Bebas Neue', sans-serif;
-  }
-  
-  .shopDiv p {
-    margin: 5px 0 5px 0;
-    font-size: 2rem;
-    color: #5c4e44;
-       font-family: 'Bebas Neue', sans-serif;
-  }
-  
-  .shopDiv .rating {
-    margin-top: 3rem;
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Bebas Neue', sans-serif;
-  }
+.shopDiv p {
+  font-size: 2rem;
+  margin: 5px 0;
+}
 
+.shopDiv .rating {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 3rem;
+}
 
 .hoverDetails {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #ffffffee;
-    color: #000;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.3s ease;
-    z-index: 2;
-    border-radius: 20px;
-    overflow: hidden;;
-
-
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffffee;
+  color: #000;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow: hidden;
+}
 
 .hoverDetails p {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
+}
 
-  }
+.hoverDetailsmore {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 15px;
+  background-color: #e3b17f;
+  color: #5c4e44;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Bebas Neue', sans-serif;
+}
 
-  /* CLICK FOR MORE */
-  .hoverDetailsmore {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: #e3b17f;
-    color: #5c4e44;
-    font-weight: normal;
-    font-family: 'Bebas Neue', sans-serif;
-  }
+.front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
 
-  .front {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    z-index: 1;
-    transition: opacity 0.3s ease;
-  }
+.hoverDetailsH2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
 
-  .hoverDetailsH2 {
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: normal
-  }
-  
 .shopDiv:hover .front {
-    opacity: 0;
+  opacity: 0;
+}
+
+.shopDiv:hover .hoverDetails {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search {
+  padding: 20px;
+  margin-bottom: 40px;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+.searchInput,
+.searchButton {
+  height: 80px;
+  border-radius: 20px;
+  border: 1px solid rgb(220, 220, 220);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+}
+
+.searchInput {
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchButton {
+  width: 20%;
+  padding: 10px;
+  background-color: #d69940;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #8f8f66!important;
+}
+
+
+@media (min-width: 840px) and (max-width: 892px) {
+  .name {
+    font-size: 140px;
+    transform: scaleY(1.3); 
+    letter-spacing: 0.8rem;
+  }
+}
+@media (max-width: 840px) {
+  .name {
+    font-size: 150px;
+    transform: scaleY(1.3); 
+    letter-spacing: 0.5rem;
+  }
+  .slogan {
+    font-size:2rem;
+    letter-spacing: 0;
   }
 
-.shopDiv:hover {
-        opacity: 1;
-
-    }
-.shopDiv:hover .hoverDetails {
-    opacity: 2;
-    pointer-events: auto;
+  .shopDiv {
+    width: 350px;
+    height: 350px;
   }
 
   .search {
-    padding: 20px;
-    margin-bottom: 40px;
-
-    
-
+    width: 100%;
   }
+  
   .searchInput {
-    width: 80%;
-    height: 80px;
-    border-radius: 20px;
-    border: 1px solid rgb(220, 220, 220);
+    width: 70%;
+    font-size: 1rem;
+    height: 70px;
     padding: 20px;
-    margin: 20px;
     background-color: #ffffff;
-    transition: all 0.3s ease;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-  }
-
-  .searchInput:focus {
-    outline: none;
- 
   }
 
   .searchButton {
-    width: 15%;
-    height: 80px;
-    border-radius: 20px;
-    border: 1px solid rgb(220, 220, 220);
-    padding: 10px;  
-    color: #000000;
-    font-size: 20px;
-    font-weight: bold;
-    font-size: 1.5rem;
-    background-color: #d69940;
+    width: 30%;
+
+    font-size: 1rem;
+    height: 70px;
   }
 
-    .searchButton :hover {
-        background-color: #8f8f66;
-    }
+  .headerContainer {
+    height: 400px;
+  }
+}
 
-    body {
-        background-color: #ece7db;
-        margin: 0;
-        padding: 0;
-      }
+@media (max-width: 600px) {
+  .searchInput {
+    width: 70%;
+  }
+
+  .searchButton {
+    width: 30%;
+  }
+  .name {
+    font-size: 100px;
+    letter-spacing: normal;
+  }
+}
+
+
+
+
+@media (max-width: 400px) {
+
+
+  .searchInput {
+    width: 70%;
+    max-width: 300px;
+    font-size: 1rem;
+    height: 70px;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  .searchButton {
+    width: 30%;
+    max-width: 300px;
+    font-size: 1rem;
+    height: 70px;
+  }
+
+  .hoverDetailsmore {
+    position: absolute;
+    bottom: 10px;
+     align-self: center;
+    font-size: 12px;
+    background-color: #e3b17f;
+    color: #5c4e44;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+
+  .searchButton {
+    background-color: #d69940;
+    color: #000000;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .name {
+    font-size: 100px;
+   letter-spacing: 0.5rem;
+    transform: scaleY(1);
+    
+  }
+
+  .slogan {
+    font-size:1.5rem;
+    letter-spacing: 0;
+  }
+}

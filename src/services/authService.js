@@ -45,7 +45,7 @@ const signIn = async (formData) => {
         return JSON.parse(atob(data.token.split('.')[1])).payload;
       }
   
-      throw new Error('Invalid response from server');
+      throw new Error('Account not found');
     } catch (err) {
       console.log(err);
       throw new Error(err);

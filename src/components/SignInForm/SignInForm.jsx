@@ -10,12 +10,13 @@ const SignInForm = () => {
 
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
+    userName: '',
     email: '',
     password: '',
     confirmPassword: ''
   });
 
-  const { email, password, confirmPassword } = formData;
+  const { userName, email, password, confirmPassword } = formData;
 
   const handleChange = (e) => {
     setMessage('');

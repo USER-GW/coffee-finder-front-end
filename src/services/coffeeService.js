@@ -39,7 +39,8 @@ const create = async (coffeeFormData) => {
 }
 
 
-  const update = async (coffeeShopId, coffeeFormData) => {
+  const update = async (coffeeShopId, averageRating) => {
+  
     try {
       const res = await fetch(`${BASE_URL}review/${coffeeShopId}`, {
         method: 'PUT',
@@ -47,13 +48,44 @@ const create = async (coffeeFormData) => {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(coffeeFormData),
+        body: JSON.stringify(averageRating),
       });
       return res.json();
     } catch (error) {
       console.log(error);
     }
   };
+
+  const createComment = async (coffeeShopId, commentFormData) => {
+    try {
+      const res = await fetch(`${BASE_URL}comment/${coffeeShopId}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteComment = async (coffeeShopId, commentId) => {
+    try {
+      const res = await fetch(`${BASE_URL}comment/${coffeeShopId}/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
 //   const deleteAccount = async (user_id) => {
 //     try {
@@ -74,4 +106,6 @@ const create = async (coffeeFormData) => {
     show,
     create,
     update,
+    createComment,
+    deleteComment,
   };

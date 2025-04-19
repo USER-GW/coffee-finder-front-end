@@ -15,16 +15,21 @@
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 2rem;
-    color:  #3e2c21;;
+    color:  #3e2c21;
+
+  }
+  .formSubtitle{ 
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color:  #a46f4e;;
+    font-style: italic;
   }
   
   .formContent {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.5rem;
     font-size: 1.1rem;
-    
-    
   }
   
   .formGroup {
@@ -36,7 +41,7 @@
   }
   
   .formGroup span {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
     font-weight: 600;
   }
   

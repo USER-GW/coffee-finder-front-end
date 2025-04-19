@@ -1,6 +1,8 @@
 import { useState, useContext } from 'react';
-import { useParams } from 'react-router'; // use `react-router-dom` for browser apps
+import { useParams } from 'react-router'; 
 import { UserContext } from '../../contexts/UserContext';
+import styles from './DeleteAccount.module.css'; 
+
 
 const DeleteAccount = (props) => {
   const { user_id } = useParams();
@@ -14,9 +16,9 @@ const DeleteAccount = (props) => {
   };
 
   return (
-    <div>
-      <h1>Delete Account</h1>
-      <button onClick={handleDeleteClick}>
+    <div className = {styles.deleteAccountContainer}>
+      <h1>Are your sure you would like to delete your account?</h1>
+      <button className = {styles.deleteBtn} onClick={handleDeleteClick}>
         Delete Account
       </button>
     </div>

@@ -10,6 +10,7 @@ const SignUpForm = () => {
 
   const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
+    userName: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -17,7 +18,7 @@ const SignUpForm = () => {
     confirmPassword: ''
   });
 
-  const { firstName, lastName, email, password, confirmPassword } = formData;
+  const { userName, firstName, lastName, email, password, confirmPassword } = formData;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,6 +37,7 @@ const SignUpForm = () => {
 
   const isFormInvalid = () => {
     return (
+      !userName ||
       !firstName ||
       !lastName ||
       !email ||
@@ -51,6 +53,12 @@ const SignUpForm = () => {
       <form onSubmit={handleSubmit} className={styles.signupForm}>
         <h1>Create Account</h1>
         {message && <p className={styles.Error}>{message}</p>}
+
+        <div className={styles.formGroup}>
+          <label htmlFor='userName'>User Name</label>
+          <p className ={styles.userNameNote}>Note: This will be public if you add a comment</p>
+          <input type='text' id='userName' name='userName' value={userName} onChange={handleChange} required />
+        </div>
 
         <div className={styles.formGroup}>
           <label htmlFor='firstName'>First Name</label>
@@ -78,7 +86,7 @@ const SignUpForm = () => {
         </div>
 
         <div className={styles.formButtons}>
-          <button type="submit" disabled={isFormInvalid()}>Sign Up</button>
+          <button className = {styles.signupBtn}type="submit" disabled={isFormInvalid()}>Sign Up</button>
           <button type="button" className= {styles.cancel} onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>

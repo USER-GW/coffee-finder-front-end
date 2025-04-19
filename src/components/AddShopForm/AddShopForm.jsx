@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styles from './AddShopForm.module.css';
 
-const AddShopForm = (props) => {
+
+const AddShopForm = ({ handleAddShop, message, setMessage }) => {
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -14,7 +15,6 @@ const AddShopForm = (props) => {
       Veggie: 0,
       WiFi: 0,
       Price: 0,
-    //   Cleanliness: 0,
       Accessibility: 0,
       Loud: 0,
       Busy: 0,
@@ -25,104 +25,104 @@ const AddShopForm = (props) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // const numericValue = parseInt(value);
-
+  
     if (formData.coffeeData.hasOwnProperty(name)) {
-        const numericValue = parseInt(value);
+      const numericValue = parseInt(value);
       if (!isNaN(numericValue) && (numericValue < 0 || numericValue > 5)) return;
-    
-      setFormData({
-        ...formData,
+  
+      setFormData((prevFormData) => ({
+        ...prevFormData,
         coffeeData: {
-          ...formData.coffeeData,
+          ...prevFormData.coffeeData,
           [name]: value,
         }
-      });
+      }));
     } else {
-      setFormData({
-        ...formData,
+      setFormData((prevFormData) => ({
+        ...prevFormData,
         [name]: value
-      });
+      }));
     }
   };
-
-  const handleSubmit = (event) => {
-    console.log('Form submitted:', formData);
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    props.handleAddShop(formData);
+    setMessage('');
+
+    try {
+      await handleAddShop(formData);
+    } catch (err) {
+      setMessage(err.message);
+    }
   };
 
   return (
     <main className={styles.addShopMain}>
- 
-    <form onSubmit={handleSubmit} className={styles.addShopForm}>
-    <h1>Add Coffee Shop ☕️ </h1>
-      <label>
-        Name*:
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-      </label>
-      <label>
-        Location*:
-        <input type="text" name="location" value={formData.location} onChange={handleChange} required />
-      </label>
-      <label>
-        Overall Rating* 🫘:
-        <input type="number" name="Rating" value={formData.coffeeData.Rating} onChange={handleChange} min="0" max="5" required />
-      </label>
-      <label>
-        Quality* ☕️:
-        <input type="number" name="Quality" value={formData.coffeeData.Quality} onChange={handleChange} min="0" max="5" required />
-      </label>
-      <label>
-        Staff* ☺️:
-        <input type="number" name="Staff" value={formData.coffeeData.Staff} onChange={handleChange} min="0" max="5" required />
-      </label>
-      <label>
-        Aesthetics* 📸:
-        <input type="number" name="Aesthetics" value={formData.coffeeData.Aesthetics} onChange={handleChange} min="0" max="5" required />
-      </label>
-      <label>
-        Good For Work* 💻:
-        <input type="number" name="Good4Work" value={formData.coffeeData.Good4Work} onChange={handleChange} min="0" max="5" required />
-      </label>
-      <label>
-        Price* 💸:
-        <input type="number" name="Price" value={formData.coffeeData.Price} onChange={handleChange} min="0" max="5" />
-      </label>
-      <label>
-        WiFi 🛜:
-        <input type="number" name="WiFi" value={formData.coffeeData.WiFi} onChange={handleChange} min="0" max="5" />
-      </label>
-      <label>
-        Food 🍴:
-        <input type="number" name="Food" value={formData.coffeeData.Food} onChange={handleChange} min="0" max="5" />
-      </label>
-      <label>
-        Veggie 🌱:
-        <input type="number" name="Veggie" value={formData.coffeeData.Veggie} onChange={handleChange} min="0" max="5" />
-      </label>
-      {/* <label>
-        Cleanliness 🦠:
-        <input type="number" name="Cleanliness" value={formData.coffeeData.Cleanliness} onChange={handleChange} min="0" max="5" />
-      </label> */}
-      <label>
-        Accessibility ♿️:
-        <input type="number" name="Accessibility" value={formData.coffeeData.Accessibility} onChange={handleChange} min="0" max="5" />
-      </label>
-      <label>
-        Loudness 📢:
-        <input type="number" name="Loud" value={formData.coffeeData.Loud} onChange={handleChange} min="0" max="5" />
-      </label>
-      <label>
-        Good For Meetings 💼:
-        <input type="number" name="Good4Meetings" value={formData.coffeeData.Good4Meetings} onChange={handleChange} min="0" max="5" />
-      </label>
+   
 
- 
+      <form onSubmit={handleSubmit} className={styles.addShopForm}>
+        <h1 className={styles.title}>Add Coffee Shop ☕️</h1>
+        <h2 className={styles.formSubtitle}>Please input score between 0-5 or computer says no</h2>
+        {message && <p className={styles.error}>{message}</p>}
 
-      <button type="submit">Add Coffee Shop!</button>
-      
-    </form>
+        <label>
+          Name*:
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        </label>
+        <label>
+          Location*:
+          <input type="text" name="location" value={formData.location} onChange={handleChange} required />
+        </label>
+        <label>
+          Overall Rating* 🫘:
+          <input type="number" name="Rating" value={formData.coffeeData.Rating} onChange={handleChange} min="0" max="5" required />
+        </label>
+        <label>
+          Quality* ☕️:
+          <input type="number" name="Quality" value={formData.coffeeData.Quality} onChange={handleChange} min="0" max="5" required />
+        </label>
+        <label>
+          Staff* ☺️:
+          <input type="number" name="Staff" value={formData.coffeeData.Staff} onChange={handleChange} min="0" max="5" required />
+        </label>
+        <label>
+          Aesthetics* 📸:
+          <input type="number" name="Aesthetics" value={formData.coffeeData.Aesthetics} onChange={handleChange} min="0" max="5" required />
+        </label>
+        <label>
+          Good For Work* 💻:
+          <input type="number" name="Good4Work" value={formData.coffeeData.Good4Work} onChange={handleChange} min="0" max="5" required />
+        </label>
+        <label>
+          Price* 💸:
+          <input type="number" name="Price" value={formData.coffeeData.Price} onChange={handleChange} min="0" max="5" />
+        </label>
+        <label>
+          WiFi 🛜:
+          <input type="number" name="WiFi" value={formData.coffeeData.WiFi} onChange={handleChange} min="0" max="5" />
+        </label>
+        <label>
+          Food 🍴:
+          <input type="number" name="Food" value={formData.coffeeData.Food} onChange={handleChange} min="0" max="5" />
+        </label>
+        <label>
+          Veggie 🌱:
+          <input type="number" name="Veggie" value={formData.coffeeData.Veggie} onChange={handleChange} min="0" max="5" />
+        </label>
+        <label>
+          Accessibility ♿️:
+          <input type="number" name="Accessibility" value={formData.coffeeData.Accessibility} onChange={handleChange} min="0" max="5" />
+        </label>
+        <label>
+          Loudness 📢:
+          <input type="number" name="Loud" value={formData.coffeeData.Loud} onChange={handleChange} min="0" max="5" />
+        </label>
+        <label>
+          Good For Meetings 💼:
+          <input type="number" name="Good4Meetings" value={formData.coffeeData.Good4Meetings} onChange={handleChange} min="0" max="5" />
+        </label>
+
+        <button type="submit">Add Coffee Shop!</button>
+      </form>
     </main>
   );
 };
