@@ -6,6 +6,7 @@ const AddShopForm = ({ handleAddShop, message, setMessage }) => {
   const [formData, setFormData] = useState({
     name: '',
     location: '',
+    postcode: '',
     coffeeData: {
       Rating: 0,
       Quality: 0,
@@ -72,6 +73,11 @@ const AddShopForm = ({ handleAddShop, message, setMessage }) => {
           Location*:
           <input type="text" name="location" value={formData.location} onChange={handleChange} required />
         </label>
+        <label>
+          Post/Zip Code *:
+          <input type="text" name="postcode" value={formData.postcode} onChange={handleChange} required />
+        </label>
+        
         <label>
           Overall Rating* 🫘:
           <input type="number" name="Rating" value={formData.coffeeData.Rating} onChange={handleChange} min="0" max="5" required />

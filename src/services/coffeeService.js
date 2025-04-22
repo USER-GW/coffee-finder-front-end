@@ -85,6 +85,23 @@ const create = async (coffeeFormData) => {
       console.log(error);
     }
   };
+  
+
+  // const removeFromFavourites = async (coffeeShopId, userId) => {
+  //   try {
+  //     const res = await fetch(`${BASE_URL}favourite/${coffeeShopId}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem('token')}`,
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ userId }),
+  //     });
+  //     return res.json();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
 
 //   const deleteAccount = async (user_id) => {
@@ -101,6 +118,40 @@ const create = async (coffeeFormData) => {
 //     }
 //   };
 
+const addFavourite = async (coffeeShopId, userId) => {
+  try {
+    const res = await fetch(`${BASE_URL}account/${coffeeShopId}/${userId}`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ coffeeShopId }), 
+    });
+    return res.json();  
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const fetchFavourites = async (userId) => {
+  try {
+  
+    const res = await fetch(`${BASE_URL}account/${userId}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+
+    if (!res.ok) throw new Error('Failed to fetch favourites');
+
+    return res.json();
+  } catch (err) {
+    console.error('Error fetching favourites:', err);
+    return [];
+  }
+};
+
   export { 
     index,
     show,
@@ -108,4 +159,6 @@ const create = async (coffeeFormData) => {
     update,
     createComment,
     deleteComment,
+    addFavourite,
+    fetchFavourites
   };

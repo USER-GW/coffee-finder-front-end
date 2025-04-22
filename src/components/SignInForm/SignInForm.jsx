@@ -13,10 +13,11 @@ const SignInForm = () => {
     userName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    favouriteShops: []
   });
 
-  const { userName, email, password, confirmPassword } = formData;
+  const { userName, email, password, confirmPassword, favouriteShops } = formData;
 
   const handleChange = (e) => {
     setMessage('');

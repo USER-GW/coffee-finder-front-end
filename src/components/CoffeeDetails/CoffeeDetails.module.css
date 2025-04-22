@@ -1,32 +1,36 @@
+@import 'leaflet/dist/leaflet.css';
+
 * {
   box-sizing: border-box;
   color: #4a3f35;
 }
+
 .mainContainer {
   display: flex;
   justify-content: center;
   background-color: #ece7db;
   padding: 1.5rem;
-  
 }
 
 .contentWrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
   max-width: 1300px;
   width: 100%;
+  align-items: start;
 }
 
 
 .detailsContainer {
+  position: relative;
   flex: 1 1 40%;
   padding: 1.5rem;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
   min-width: 300px;
+
 }
 
 .shopDetails {
@@ -34,19 +38,41 @@
   font-weight: 700;
   color: #4a3f35;
 }
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.heartBtn {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: white !important;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.heartBtn:hover {
+  transform: scale(1.2);
+}
 
 .detailList {
-  margin-top: 1rem;
-  
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .detailItem {
-  font-size: 1.4rem;
   margin: 1.2rem 0;
   border-bottom: 1px solid #ddd;
   padding-bottom: 0.5rem;
   color: #4a3f35;
 }
+
 
 .buttonContainer {
   margin-top: 2rem;
@@ -67,16 +93,24 @@
 }
 
 .addReviewBtn:hover {
-  background-color: #8f8f66!important;
+  background-color: #8f8f66 !important;
+}
+
+/* Right Column */
+.commentsAndMap {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 4rem;
+  
 }
 
 
-.commentSection {
-  flex: 1 1 40%;
-  min-width: 300px;
-  color: #4a3f35;
+.commentHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
 }
-
 
 .noComments {
   text-align: center;
@@ -84,28 +118,56 @@
   color: #888;
 }
 
-.commentHeading{
-  font-size: 2rem;
-  font-weight: 700;
-  color: #4a3f35;
-  text-align: center;
+.commentList {
+  max-height: 530px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.commentList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.commentList::-webkit-scrollbar-thumb {
+  background-color: #c1a77a;
+  border-radius: 10px;
+}
+
+.commentList::-webkit-scrollbar-track {
+  background: #f3eee6;
 }
 
 .commentCard {
   position: relative;
-  border: 1px solid #ffffff;
   border-radius: 16px;
-  padding: 1.5rem 1.5rem 0rem 1.5rem ;
- margin-top: 1rem;
-  background-color: #fffdfc;
+  padding: 1.5rem 1.5rem 0.5rem;
+  background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-height: 180px;
+  gap: 0.2rem;
 }
 
+.commentText {
+  font-size: 1.2rem;
+  color: #2c1f14;
+  line-height: 1.5;
+  word-break: break-word;
+}
 
+.commentFooter {
+  margin-top: 1rem;
+}
+
+.commentMeta {
+  font-size: 0.75rem;
+  color: #7a5a3c;
+  font-weight: 500;
+}
+
+/* Options */
 .optionsWrapper {
   position: absolute;
   top: 1rem;
@@ -120,9 +182,9 @@
   color: #7a5a3c;
   padding: 0.25rem;
 }
-.optionsButton:hover {
-background-color: white!important;
 
+.optionsButton:hover {
+  background-color: white !important;
 }
 
 .dropdownMenu {
@@ -137,8 +199,6 @@ background-color: white!important;
   min-width: 120px;
 }
 
-
-
 .dropdownItem {
   display: block;
   padding: 0.75rem 1.2rem;
@@ -152,80 +212,37 @@ background-color: white!important;
 }
 
 .dropdownItem:hover {
-  background-color: #f7f7f7!important;
+  background-color: #f7f7f7 !important;
 }
 
-
-.commentText {
-  font-size: 1.2rem;
-  color: #2c1f14;
-  line-height: 1.5;
-  margin-top: 1.5rem;
-  word-break: break-word;
-}
-
-
-.commentFooter {
+/* Map */
+.mapContainer {
+  grid-column: 1 / -1;
+  height: 350px;
+  width: 100%;
   margin-top: 2rem;
-
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid #c1a77a;
 }
 
-.commentMeta {
-  font-size: 0.7rem;
-  color: #7a5a3c;
-  font-weight: 500;
-}
-
-
-.commentActions {
-  display: flex;
-  gap: 10px;
-}
-
-.commentButton {
-  background-color: #d14f2f;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.commentButton:hover {
-  background-color: #8f8f66
+.custom-emoji-icon {
+  font-size: 1.8rem;
 }
 
 
 @media (max-width: 900px) {
   .contentWrapper {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .commentsAndMap {
+    grid-template-rows: auto auto;
   }
 
   .detailsContainer,
-  .commentSection {
+  .commentSection,
+  .mapContainer {
     width: 100%;
   }
-}
-.commentList {
-  max-height: 600px;
-  overflow-y: auto;
-  padding-right: 0.5rem;
-  /* margin-bottom: 1.5rem; */
-}
-
-
-.commentList::-webkit-scrollbar {
-  width: 6px;
-}
-
-.commentList::-webkit-scrollbar-thumb {
-  background-color: #c1a77a;
-  border-radius: 10px;
-}
-
-.commentList::-webkit-scrollbar-track {
-  background: #f3eee6;
 }

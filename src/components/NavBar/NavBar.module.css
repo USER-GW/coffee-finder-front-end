@@ -1,70 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Blaka+Hollow&family=Geist:wght@100..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Jacquard+12+Charted&family=Notable&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shizuru&family=Sixtyfour+Convergence&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Bebas+Neue&display=swap');
 
 .navBar {
   display: flex;
-  width: 100%;
-  justify-content: center;
-  font-family: 'Arimo', sans-serif;
+  justify-content: space-between;
+  align-items: center;
   background-color: #ece7db;
+  padding: 1rem 2rem;
+  font-family: 'Arimo', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 1000;
 }
 
-.navbarContainer {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navbarContainer ul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  list-style: none;
-  gap: 20px;
-  padding: 0;
-}
-
-.navbarContainer ul li {
-  flex-shrink: 0;
-}
-
-a {
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
   color: #4a3f35;
   text-decoration: none;
+  margin-right: 2rem;
+  white-space: nowrap;
 }
 
-.addCoffeeshop {
+.navLinks {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  background-color: #8f8f66;
-  border-radius: 4px;
-  cursor: pointer;
+  gap: 2rem;
+}
+
+.navLinks a {
+  color: #4a3f35;
   font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.addCoffeeshop:hover {
+.navLinks a:hover {
+  color: #d69940;
+}
+
+/* Highlight the "Add a Coffee Shop" link */
+.addCoffeeshop a {
+  background-color: #8f8f66;
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.addCoffeeshop a:hover {
   background-color: #d69940;
-  color: white;
 }
 
-/* DROPDOWN */
-
+/* Dropdown (optional styling if needed in future) */
 .dropdown {
   position: relative;
-  list-style: none;
 }
 
 .dropdownToggle {
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  white-space: nowrap;
   font-weight: bold;
-  position: relative;
 }
 
 .dropdownMenu {
@@ -73,33 +70,44 @@ a {
   right: 0;
   background-color: #ffffff;
   border-radius: 6px;
-  padding: 2rem 0;
-  min-width: 230px;
-  width: max-content;
+  padding: 1rem 0;
+  min-width: 200px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: block; 
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(5px);
-  transition: all 0.2s ease;
+  display: none;
 }
 
 .dropdown:hover .dropdownMenu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  display: block;
 }
 
 .dropdownItem {
+  padding: 0.75rem 1rem;
   display: block;
-  width: 100%;
-  padding: 0.75rem 1.2rem;
-  text-align: left;
-  background: none;
-  font-weight: 500;
   color: #4a3f35;
+  text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
+.dropdownItem:hover {
+  background-color: #f7f7f7;
+}
 
+/* Responsive behavior (optional) */
+@media (max-width: 768px) {
+  .navBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .navLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .logo {
+    margin-bottom: 0.5rem;
+  }
+}

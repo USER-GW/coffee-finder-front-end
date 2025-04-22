@@ -1,26 +1,46 @@
-import { useState } from 'react';
-import { useParams } from 'react-router';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router';
 import styles from './CommentForm.module.css';
+import { UserContext } from '../../contexts/UserContext';
 
-const CommentForm = (props) => {
-    const [formData, setFormData] = useState({ text: '' });
+const CommentForm = ({ handleAddComment }) => {
+  const [formData, setFormData] = useState({ text: '' });
+  const { user } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value });
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleAddComment(formData);
+    setFormData({ text: '' });
+  };
+
+  const handleRedirectSignUp = () => {
+    navigate('/sign-up');
+  };
+
+  const handleRedirectSignIn = () => {
+    navigate('/sign-in');
+  };
 
 
-    const handleChange = (evt) => {
-      setFormData({ ...formData, [evt.target.name]: evt.target.value });
-    };
-  
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-        props.handleAddComment(formData);
-        setFormData({ text: '' });
-      };
-
-
-  
+  if (!user) {
     return (
-      <form onSubmit={handleSubmit} className={styles.commentForm}>
-      {/* <label htmlFor="text-input">Your comment:</label> */}
+      <div className={styles.commentForm}>
+        <button type="button" onClick={handleRedirectSignUp}>
+          Sign Up to Comment
+        </button>
+     
+      </div>
+    );
+  }
+
+ 
+  return (
+    <form onSubmit={handleSubmit} className={styles.commentForm}>
       <textarea
         required
         name="text"
@@ -31,7 +51,7 @@ const CommentForm = (props) => {
       />
       <button type="submit">Submit Comment</button>
     </form>
-    );
-  };
-  
-  export default CommentForm;
+  );
+};
+
+export default CommentForm;

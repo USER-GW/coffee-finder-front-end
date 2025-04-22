@@ -15,10 +15,11 @@ const SignUpForm = () => {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    favouriteShops: [],
   });
 
-  const { userName, firstName, lastName, email, password, confirmPassword } = formData;
+  const { userName, firstName, lastName, email, password, confirmPassword} = formData;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

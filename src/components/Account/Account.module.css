@@ -1,0 +1,72 @@
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px;
+
+}
+
+.favouriteTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4a3f35;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+.favouriteContainer {
+    margin: 40px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    font-size: 1.2rem;
+}
+
+
+.accountBtns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     
+    justify-content: center;  
+    gap: 1rem;               
+    margin: 2rem;
+    padding: 2rem;
+    height: 150px;
+}
+
+.signOutBtn,
+.deleteAccountBtn {
+    width: 220px;
+    height:35px;             
+    display: flex;            
+    align-items: center;
+    justify-content: center;
+    padding: 0;               
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.signOutBtn {
+    background-color: #e09b33;
+    color: white;
+    border: none;
+}
+
+.signOutBtn:hover {
+    background-color: #c88420;
+}
+
+.deleteAccountBtn {
+    background-color: #fff;
+    color: #4a3f35;
+}
+
