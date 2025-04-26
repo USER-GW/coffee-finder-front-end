@@ -70,7 +70,7 @@ const AddShopForm = ({ handleAddShop, message, setMessage }) => {
           <input type="text" name="name" value={formData.name} onChange={handleChange} required />
         </label>
         <label>
-          Location*:
+        Neighbourhood*:
           <input type="text" name="location" value={formData.location} onChange={handleChange} required />
         </label>
         <label>

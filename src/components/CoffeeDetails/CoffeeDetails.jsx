@@ -55,13 +55,18 @@ const CoffeeDetails = (props) => {
   }, []);
 
   useEffect(() => {
-  if (user && coffeeDeets) {
-    const isAlreadyFavourited = user.favouriteShops?.some(
-      (shopId) => shopId.toString() === coffeeDeets._id.toString()
-    );
-    setIsFavourited(isAlreadyFavourited);
-  }
-}, [user, coffeeDeets]);
+    const checkFavouriteStatus = async () => {
+      if (!user || !coffeeDeets) return;
+  
+      const favourites = await coffeeService.fetchFavourites(user._id);
+      const isFav = favourites.some(
+        (shop) => shop._id.toString() === coffeeDeets._id.toString()
+      );
+      setIsFavourited(isFav);
+    };
+  
+    checkFavouriteStatus();
+  }, [user, coffeeDeets]);
   
   useEffect(() => {
     const fetchCoffee = async () => {
@@ -118,16 +123,27 @@ const CoffeeDetails = (props) => {
 
         <div className={styles.detailsContainer}>
         <div className={styles.btnContainer}>
+
         <button
   onClick={async () => {
-    await props.handleAddFavourite(coffeeDeets._id, user._id);
-    setIsFavourited(prev => !prev);
+    try {
+      const result = await props.handleAddFavourite(coffeeDeets._id, user._id);
+
+      if (result.message === "Added to favourites") {
+        setIsFavourited(true);
+      } else if (result.message === "Removed from favourites") {
+        setIsFavourited(false);
+      }
+    } catch (err) {
+      console.error("Error toggling favourite:", err);
+    }
   }}
   className={styles.heartBtn}
   aria-label="Toggle favourite"
 >
   {isFavourited ? '❤️' : '🤍'}
 </button>
+
 </div>
           <h2 className={styles.shopDetails}>
             {coffeeDeets.name} - <span>{coffeeDeets.location}</span>

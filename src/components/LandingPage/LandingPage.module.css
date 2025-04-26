@@ -18,7 +18,6 @@ body {
 }
 
 
-
 /* Header */
 .headerContainer {
   margin-top: 2rem;
@@ -67,8 +66,8 @@ body {
 /* Landing Section */
 .landingPageSection {
   width: 100vw;
-  height: 100vh;
-  margin-bottom: 40px;
+  height: 100%;
+  margin-bottom: 0px;
 }
 
 /* Shop Section */
@@ -195,6 +194,7 @@ body {
   width: 100%;
   flex-wrap: wrap;
   align-self: center;
+  margin-bottom: 60px;
 }
 
 .searchInput,

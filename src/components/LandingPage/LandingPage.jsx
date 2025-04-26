@@ -83,7 +83,7 @@ const LandingPage = (props) => {
   return (
     <div className={`${styles.landingWrapper} ${styles.mainContainer}`}>
       <div className={styles.headerContainer}>
-        <h1 className={styles.name}>Nooks & Brews</h1>
+        <h1 className={styles.name}>Coffee Alleys</h1>
       </div>
 
       <div className={styles.sloganContainer}>

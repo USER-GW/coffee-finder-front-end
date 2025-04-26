@@ -2,7 +2,7 @@ import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import * as coffeeService from '../../services/coffeeService';
 import styles from './Account.module.css';
-import { Link, useNavigate } from 'react-router';  // Corrected import
+import { Link, useNavigate } from 'react-router'; 
 
 const Account = () => {
   const { user, setUser } = useContext(UserContext);
@@ -41,7 +41,7 @@ const Account = () => {
   return (
     <section className={styles.mainContainer}>
       <div className={styles.favouriteContainer}>
-        <h2 className={styles.favouriteTitle}>{user?.userName}'s Favourites:</h2>
+        <h2 className={styles.favouriteTitle}> ❤️ {user?.userName}'s Favourites:</h2>
         <ul>
           {favourites.length > 0 ? (
             favourites.map((shop) => (
@@ -51,7 +51,7 @@ const Account = () => {
               </li>
             ))
           ) : (
-            <p>You have no favourite shops yet.</p>
+            <p>You have no favourite shops yet </p>
           )}
         </ul>
       </div>

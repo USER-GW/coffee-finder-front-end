@@ -118,20 +118,17 @@ const create = async (coffeeFormData) => {
 //     }
 //   };
 
-const addFavourite = async (coffeeShopId, userId) => {
-  try {
-    const res = await fetch(`${BASE_URL}account/${coffeeShopId}/${userId}`, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ coffeeShopId }), 
-    });
-    return res.json();  
-  } catch (error) {
-    console.log(error);
-  }
+ const addFavourite = async (coffeeShopId, userId) => {
+  const res = await fetch(`${BASE_URL}account/${coffeeShopId}/${userId}`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+  });
+
+  if (!res.ok) throw new Error('Failed to toggle favourite');
+
+  return res.json();  
 };
 
 const fetchFavourites = async (userId) => {

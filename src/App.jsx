@@ -21,7 +21,7 @@ import './App.css';
 
 const App = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // ← grab current path
+  const location = useLocation();
   const [coffeeShop, setCoffeeShop] = useState([]);
   const { setUser } = useContext(UserContext);
   const [message, setMessage] = useState('');
@@ -88,13 +88,12 @@ const App = () => {
   };
 
   const handleAddFavourite = async (coffeeShopId, userId) => {
-    const favourite  = await coffeeService.addFavourite(coffeeShopId, userId);
-    console.log(coffeeShopId, userId);
-    setFavoutite(favourite);
-    console.log(favourite);
-  }
+    const result = await coffeeService.addFavourite(coffeeShopId, userId);
+    console.log('Added to favourites:', result);
 
-  
+    return result;  
+   
+  };
 
   return (
     <div className="app-container">
@@ -113,8 +112,9 @@ const App = () => {
       
       </main>
 
-    
-      {location.pathname !== '/' && <Footer />}
+      <div className="footer-container">
+        <Footer />
+    </div>
     </div>
   );
 };
