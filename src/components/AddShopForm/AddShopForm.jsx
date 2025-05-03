@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './AddShopForm.module.css';
+import { Helmet } from 'react-helmet';
 
 
 const AddShopForm = ({ handleAddShop, message, setMessage }) => {
@@ -57,6 +58,17 @@ const AddShopForm = ({ handleAddShop, message, setMessage }) => {
   };
 
   return (
+    <>
+   <Helmet>
+  <title>Add a Coffee Shop | Nooks & Brews</title>
+  <meta name="description" content="Add your favorite coffee shop to Nooks & Brews and help others discover hidden gems. Share ratings, details, and personal experiences." />
+  <meta name="keywords" content="add coffee shop, share coffee shop, coffee reviews, coffee community, discover cafes, submit coffee shop, best coffee shops" />
+  <meta property="og:title" content="Add a Coffee Shop | Nooks & Brews" />
+  <meta property="og:description" content="Submit a new coffee shop and share your experience with the Nooks & Brews community. Help others find the best spots!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nooksandbrews.com/add" />
+</Helmet>
+
     <main className={styles.addShopMain}>
    
 
@@ -130,6 +142,7 @@ const AddShopForm = ({ handleAddShop, message, setMessage }) => {
         <button type="submit">Add Coffee Shop!</button>
       </form>
     </main>
+    </>
   );
 };
 

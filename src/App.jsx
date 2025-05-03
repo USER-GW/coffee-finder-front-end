@@ -16,6 +16,7 @@ import Account from './components/Account/Account';
 import Footer from './components/Footer/Footer';
 import { UserContext } from './contexts/UserContext';
 
+import { Helmet } from 'react-helmet'; 
 
 import './App.css';
 
@@ -42,12 +43,11 @@ const App = () => {
     const existingCoffeeShopPostCode = coffeeShop.find(
       (shop) => shop.postcode === coffeeFormData.postcode
     );
-  
-    
+
     if (existingCoffeeShopName && existingCoffeeShopPostCode) {
       throw new Error('This coffee shop already exists, please add your own review to it!');
     }
-  
+
     const newCoffeeShop = await coffeeService.create(coffeeFormData);
     setCoffeeShop([newCoffeeShop, ...coffeeShop]);
     navigate('/');
@@ -90,13 +90,20 @@ const App = () => {
   const handleAddFavourite = async (coffeeShopId, userId) => {
     const result = await coffeeService.addFavourite(coffeeShopId, userId);
     console.log('Added to favourites:', result);
-
     return result;  
-   
   };
 
   return (
     <div className="app-container">
+      
+      <Helmet>
+        <title>N&B, Nooks and Brews  - Coffee Shop Reviews & Community</title>
+        <meta name="description" content="Discover and review coffee shops with Nooks and Brews. Join our community to share your favorite spots and experiences." />
+        <meta name="keywords" content="coffee, coffee work place, coffee shops, reviews, community, cafe, add coffee shop, best coffee shops, best coffee shops to work from, London coffees, best coffee shops in London " />
+        <meta name="author" content="Nooks and Brews" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+
       <NavBar />
       <main className="main-content">
         <Routes>
@@ -109,12 +116,11 @@ const App = () => {
           <Route path="/review/:coffeeShopId" element={<UpdateDetails handleUpdateShop={handleUpdateShop} />} />
           <Route path="/account/:user_id" element={<Account favourite={favourite} coffeeShop={coffeeShop}/> } />
         </Routes>
-      
       </main>
 
       <div className="footer-container">
         <Footer />
-    </div>
+      </div>
     </div>
   );
 };

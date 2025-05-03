@@ -4,6 +4,7 @@ import * as coffeeService from '../../services/coffeeService';
 import { useEffect, useState, useContext, useRef } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import CommentForm from '../CommentForm/CommentForm';
+import { Helmet } from 'react-helmet';
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -118,6 +119,18 @@ const CoffeeDetails = (props) => {
   if (!coffeeDeets) return <div className={styles.loading}>Loading...</div>;
 
   return (
+    <>
+ <Helmet>
+  <title>{coffeeDeets.name} | {coffeeDeets.location} | Nooks & Brews</title>
+  <meta name="description" content={`Read reviews, see ratings, and explore ${coffeeDeets.name} located in ${coffeeDeets.location}. Discover why it's a favourite coffee spot on Nooks & Brews.`} />
+  <meta name="keywords" content="coffee, coffee work place, coffee shops, reviews, community, cafe, London coffee, best coffee shops in London, coffee ratings" />
+  <meta property="og:title" content={`${coffeeDeets.name} | ${coffeeDeets.location} | Nooks & Brews`} />
+  <meta property="og:description" content={`See ratings, reviews, and more about ${coffeeDeets.name} in ${coffeeDeets.location}. Join Nooks & Brews community to explore the best coffee spots.`} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://nooksandbrews.com/${coffeeDeets._id}`} />
+</Helmet>
+
+    
     <main className={styles.mainContainer}>
       <div className={styles.contentWrapper}>
 
@@ -255,6 +268,7 @@ const CoffeeDetails = (props) => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 

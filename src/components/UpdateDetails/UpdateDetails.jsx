@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import * as coffeeService from '../../services/coffeeService';
 import styles from './UpdateDetails.module.css';
 import { UserContext } from '../../contexts/UserContext';
+import { Helmet } from 'react-helmet';
 
 const UpdateDetails = (props) => {
   const { coffeeShopId } = useParams();
@@ -70,6 +71,18 @@ const UpdateDetails = (props) => {
   };
 
   return (
+    <>
+<Helmet>
+  <title>Update Your Coffee Shop Review | Nooks & Brews</title>
+  <meta name="description" content="Update your ratings and review for your favourite coffee shop on Nooks & Brews. Share your updated experience with the community." />
+  <meta name="keywords" content="update coffee review, add coffee shop scores, edit coffee review, rate coffee shops, coffee ratings, Nooks and Brews reviews" />
+  <meta property="og:title" content="Update Your Coffee Shop Review | Nooks & Brews" />
+  <meta property="og:description" content="Update your coffee shop ratings and share your latest experience with the Nooks & Brews community. Keep your reviews fresh and helpful." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nooksandbrews.com/update-review" />
+</Helmet>
+
+
     <main className={styles.formContainer}>
       <h1 className={styles.formTitle}>What's your take?</h1>
       <h2 className={styles.formSubtitle}>Please input score between 0-5 or computer says no</h2>
@@ -107,6 +120,7 @@ const UpdateDetails = (props) => {
         </button>
       </form>
     </main>
+    </>
   );
 };
 

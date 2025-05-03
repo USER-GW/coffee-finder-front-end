@@ -4,6 +4,7 @@ import '../../App.css'
 import styles from './Footer.module.css'
 const Footer = () => {
     return (
+        <>
  <section className={styles.footer}>
             <div className={styles.footerContainer}>
                 <h2 className={styles.footerTitle}>Nooks & Brews</h2>
@@ -11,6 +12,7 @@ const Footer = () => {
     
             </div>
         </section>
+        </>
     )
 }
 

@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import styles from './LandingPage.module.css';
 import { Link } from 'react-router';
 import { UserContext } from '../../contexts/UserContext';
+import { Helmet } from 'react-helmet';
 
 import {
   BarChart,
@@ -82,6 +83,18 @@ const LandingPage = (props) => {
 
   return (
     <div className={`${styles.landingWrapper} ${styles.mainContainer}`}>
+
+  
+      <Helmet>
+        <title>Nooks & Brews | Discover & Rate Coffee Shops</title>
+        <meta name="description" content="Find and review the best coffee shops in your area with Nooks & Brews. See ratings, share experiences, and discover local favorites." />
+        <meta name="keywords" content="coffee, coffee work place, coffee shops, reviews, community, cafe, add coffee shop, best coffee shops, best coffee shops to work from, London coffees, best coffee shops in London " />
+        <meta property="og:title" content="Nooks & Brews - Find The Best Coffee Spots" />
+        <meta property="og:description" content="Join Nooks & Brews to discover and rate amazing coffee shops near you. Browse user reviews, ratings, and more!" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nooksandbrews.com" />
+      </Helmet>
+
       <div className={styles.headerContainer}>
         <h1 className={styles.name}>Nooks & Brews</h1>
       </div>

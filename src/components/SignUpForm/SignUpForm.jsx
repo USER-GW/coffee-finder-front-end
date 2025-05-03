@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { signUp } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
 import styles from './SignUpForm.module.css';
+import { Helmet } from 'react-helmet';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -49,6 +50,12 @@ const SignUpForm = () => {
 
   return (
     <>
+        <Helmet>
+        <title>Sign Up | Nooks and Brews</title>
+        <meta name="description" content="Create your account and join the Nooks and Brews coffee community." />
+      </Helmet>
+   
+
     <main className={styles.mainContainer}>
     <div className={styles.signupContainer}>
       <form onSubmit={handleSubmit} className={styles.signupForm}>

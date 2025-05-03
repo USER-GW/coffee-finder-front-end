@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { signIn } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
 import styles from './SignInForm.module.css';
+import { Helmet } from 'react-helmet';
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -36,6 +37,18 @@ const SignInForm = () => {
   };
 
   return (
+    <>
+      <Helmet>
+  <title>Sign In | Nooks & Brews</title>
+  <meta name="description" content="Sign into your Nooks & Brews account to rate coffee shops, share reviews, and join the coffee lover's community." />
+  <meta name="keywords" content="sign in, login, Nooks and Brews account, coffee community, coffee reviews" />
+  <meta property="og:title" content="Sign In | Nooks & Brews" />
+  <meta property="og:description" content="Sign into your account to rate and review coffee shops on Nooks & Brews and join our growing coffee community." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nooksandbrews.com/sign-in" />
+</Helmet>
+     
+
     <div className={styles.signinContainer}>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.signInForm}>
         <h1>Sign In</h1>
@@ -101,7 +114,9 @@ const SignInForm = () => {
         </button>
       </form>
     </div>
+    </>
   );
+
 };
 
 export default SignInForm;

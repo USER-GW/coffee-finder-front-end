@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import styles from './NavBar.module.css';
 import { UserContext } from '../../contexts/UserContext';
 
+
 const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -20,6 +21,8 @@ const NavBar = () => {
   }, [user]);
 
   return (
+    <>
+
     <nav className={styles.navBar}>
       <Link className={styles.logo} to="/">N&B</Link>
 
@@ -62,6 +65,7 @@ const NavBar = () => {
         )}
       </div>
     </nav>
+    </>
   );
 };
 
