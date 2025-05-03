@@ -98,6 +98,7 @@ const App = () => {
       
       <Helmet>
         <title>N&B, Nooks and Brews  - Coffee Shop Reviews & Community</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta name="description" content="Discover and review coffee shops with Nooks and Brews. Join our community to share your favorite spots and experiences." />
         <meta name="keywords" content="coffee, coffee work place, coffee shops, reviews, community, cafe, add coffee shop, best coffee shops, best coffee shops to work from, London coffees, best coffee shops in London " />
         <meta name="author" content="Nooks and Brews" />
