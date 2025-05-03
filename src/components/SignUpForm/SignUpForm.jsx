@@ -56,33 +56,33 @@ const SignUpForm = () => {
         {message && <p className={styles.Error}>{message}</p>}
 
         <div className={styles.formGroup}>
-          <label htmlFor='userName'>User Name</label>
+          <label htmlFor='userName'>*User Name</label>
           <p className ={styles.userNameNote}>Note: This will be public if you add a comment</p>
           <input type='text' id='userName' name='userName' value={userName} onChange={handleChange} required />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor='firstName'>First Name</label>
+          <label htmlFor='firstName'>*First Name</label>
           <input type='text' id='firstName' name='firstName' value={firstName} onChange={handleChange} required />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor='lastName'>Last Name</label>
+          <label htmlFor='lastName'>*Last Name</label>
           <input type='text' id='lastName' name='lastName' value={lastName} onChange={handleChange} required />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>*Email</label>
           <input type='email' id='email' name='email' value={email} onChange={handleChange} required />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='password'>*Password</label>
           <input type='password' id='password' name='password' value={password} onChange={handleChange} required />
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor='confirmPassword'>Confirm Password</label>
+          <label htmlFor='confirmPassword'>*Confirm Password</label>
           <input type='password' id='confirmPassword' name='confirmPassword' value={confirmPassword} onChange={handleChange} required />
         </div>
 

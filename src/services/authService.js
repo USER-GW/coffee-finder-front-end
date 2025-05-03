@@ -10,8 +10,10 @@ const signUp = async (formData) => {
 
     const data = await res.json();
 
-    if (data.err) {
-      throw new Error(data.err);
+    if (!res.ok) {
+     
+      const errorMessage = data.err || 'An unexpected error occurred';
+      throw new Error(errorMessage);
     }
 
     if (data.token) {
@@ -21,8 +23,8 @@ const signUp = async (formData) => {
 
     throw new Error('Invalid response from server');
   } catch (err) {
-    console.log(err);
-    throw new Error(err);
+
+    throw new Error(err.message || 'Something went wrong');
   }
 };
 

@@ -10,6 +10,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: relative;
   z-index: 1000;
+  font-size: 1.2rem;
 }
 
 .logo {
@@ -39,7 +40,6 @@
   color: #d69940;
 }
 
-/* Highlight the "Add a Coffee Shop" link */
 .addCoffeeshop a {
   background-color: #8f8f66;
   color: white !important;
@@ -48,66 +48,128 @@
   font-weight: bold;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  white-space: nowrap; 
 }
 
 .addCoffeeshop a:hover {
   background-color: #d69940;
 }
 
-
-.dropdown {
+.userMenu {
   position: relative;
+  display: inline-block;
 }
 
-.dropdownToggle {
+.hamburger {
   cursor: pointer;
   font-weight: bold;
+  font-size: 2rem;
+  background-color: #ece7db;
+  margin-bottom: 0.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  user-select: none;
+  color: #4a3f35;
+  transition: background-color 0.3s ease;
 }
 
-.dropdownMenu {
+.hamburger:hover {
+  background-color: #d6cfc2;
+}
+
+.userDropdown {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 6px;
-  padding: 1rem 0;
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  width: 180px;
+  z-index: 100;
 }
 
-.dropdown:hover .dropdownMenu {
+.userDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  width: 150px;
+  z-index: 1000;
+  display: none; 
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(-10px);
+}
+
+.userDropdown.show {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.userDropdown button,
+.userDropdown .deleteAccount {
   display: block;
-}
-
-.dropdownItem {
+  width: 100%;
   padding: 0.75rem 1rem;
-  display: block;
+  background: none;
+  text-align: center;
   color: #4a3f35;
-  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
   transition: background-color 0.2s ease;
+  border: none;
+  font-size: 15px !important;
 }
 
-.dropdownItem:hover {
-  background-color: #f7f7f7;
+.userDropdown button:hover,
+.userDropdown .deleteAccount:hover {
+  background-color: #f0f0f0 !important;
+  color: #d69940;
 }
 
-/* Responsive behavior (optional) */
-@media (max-width: 768px) {
+
+@media (max-width: 600px) {
   .navBar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .navLinks {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
   }
 
   .logo {
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .navLinks {
+    gap: 1rem;
+  }
+
+  .hamburger {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .addCoffeeshop a {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .userDropdown {
+    width: 150px;
+  }
+
+  .userDropdown button,
+  .userDropdown .deleteAccount {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
   }
 }
+
+
+

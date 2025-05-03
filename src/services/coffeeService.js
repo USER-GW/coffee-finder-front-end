@@ -87,36 +87,6 @@ const create = async (coffeeFormData) => {
   };
   
 
-  // const removeFromFavourites = async (coffeeShopId, userId) => {
-  //   try {
-  //     const res = await fetch(`${BASE_URL}favourite/${coffeeShopId}`, {
-  //       method: 'DELETE',
-  //       headers: {
-  //         Authorization: `Bearer ${localStorage.getItem('token')}`,
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ userId }),
-  //     });
-  //     return res.json();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-
-//   const deleteAccount = async (user_id) => {
-//     try {
-//       const res = await fetch(`${BASE_URL}delete-account/${user_id}`, {
-//         method: 'DELETE',
-//         headers: {
-//           Authorization: `Bearer ${localStorage.getItem('token')}`,
-//         },
-//       });
-//       return res.json();
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
 
  const addFavourite = async (coffeeShopId, userId) => {
   const res = await fetch(`${BASE_URL}account/${coffeeShopId}/${userId}`, {

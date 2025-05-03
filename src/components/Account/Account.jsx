@@ -9,22 +9,6 @@ const Account = () => {
   const [favourites, setFavourites] = useState([]);
   const navigate = useNavigate();
 
-  const handleSignOut = () => {
-    localStorage.removeItem('token');
-    setUser(null);
-    navigate('/');
-  };
-
-  const handleDeleteAccount = async () => {
-    try {
-      await coffeeService.deleteAccount(user._id);
-      localStorage.removeItem('token');
-      setUser(null);
-      navigate('/');
-    } catch (error) {
-      console.error('Failed to delete account:', error);
-    }
-  };
 
   useEffect(() => {
     if (!user || !user._id) return;
@@ -41,7 +25,7 @@ const Account = () => {
   return (
     <section className={styles.mainContainer}>
       <div className={styles.favouriteContainer}>
-        <h2 className={styles.favouriteTitle}> ❤️ {user?.userName}'s Favourites:</h2>
+        <h2 className={styles.favouriteTitle}>  {user?.userName}'s Winners:  </h2>
         <ul>
           {favourites.length > 0 ? (
             favourites.map((shop) => (
@@ -56,16 +40,8 @@ const Account = () => {
         </ul>
       </div>
       <div className={styles.accountBtns}>
-  {user && (
-    <>
-      <button onClick={handleSignOut} className={styles.signOutBtn}>
-        Sign Out
-      </button>
-      <Link className={styles.deleteAccountBtn} to={`/delete-account/auth/${user._id}`}>
-        Delete Account
-      </Link>
-    </>
-  )}
+  
+
 </div>
     </section>
   );
