@@ -14,6 +14,9 @@ import {
   Cell,
 } from 'recharts';
 
+
+
+
 const MiniBarChart = ({ data }) => {
   const chartData = [
     { name: '☕️ Quality', value: data?.Quality || 0 },
@@ -80,7 +83,8 @@ const LandingPage = (props) => {
   };
 
   const shopsToDisplay = filteredResults ?? props.coffeeShop;
-
+ 
+  
   return (
     <div className={`${styles.landingWrapper} ${styles.mainContainer}`}>
 
@@ -128,6 +132,7 @@ const LandingPage = (props) => {
 
       <section className={styles.landingPageSection}>
         <div className={styles.shopContainer}>
+        
           {shopsToDisplay.length > 0 ? (
             shopsToDisplay.map((coffee) => (
               <div key={coffee._id} className={styles.shopDiv}>
@@ -150,6 +155,7 @@ const LandingPage = (props) => {
             ))
           ) : filteredResults !== null ? (
             <p className={styles.noResults}>Oops, nothing to show.</p>
+            
           ) : null}
         </div>
       </section>

@@ -116,7 +116,7 @@ const CoffeeDetails = (props) => {
     });
   };
 
-  if (!coffeeDeets) return <div className={styles.loading}>Loading...</div>;
+  if (!coffeeDeets) return <div className={styles.loading}>Loading... ☕️</div>;
 
   return (
     <>
