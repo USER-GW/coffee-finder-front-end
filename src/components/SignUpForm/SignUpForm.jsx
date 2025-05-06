@@ -63,7 +63,7 @@ const SignUpForm = () => {
         {message && <p className={styles.Error}>{message}</p>}
 
         <div className={styles.formGroup}>
-          <label htmlFor='userName'>*User Name</label>
+          <label htmlFor='userName'>*Username</label>
           <p className ={styles.userNameNote}>Note: This will be public if you add a comment</p>
           <input type='text' id='userName' name='userName' value={userName} onChange={handleChange} required />
         </div>
