@@ -74,7 +74,7 @@ const AddShopForm = ({ handleAddShop, message, setMessage }) => {
 
       <form onSubmit={handleSubmit} className={styles.addShopForm}>
         <h1 className={styles.title}>Add Coffee Shop ☕️</h1>
-        <h2 className={styles.formSubtitle}>Please input score between 0-5</h2>
+        <h2 className={styles.formSubtitle}>Please input a score between 0-5.</h2>
         {message && <p className={styles.error}>{message}</p>}
 
         <label>
