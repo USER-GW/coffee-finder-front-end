@@ -1,3 +1,5 @@
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Project idea:
+Nooks & Brews is a website that allows users to rate coffee shops in London with additional information that typically can't be found on Google, e.g. how loud is the coffee shop? Is it good for work?
 
+Users can make an account if they want to add their own coffee shop, want to add their own reviews, comments or favourites.
 
