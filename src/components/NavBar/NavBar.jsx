@@ -29,9 +29,7 @@ const NavBar = () => {
       <div className={styles.navLinks}>
         <Link to="/">Main Menu</Link>
 
-        <div className={styles.addCoffeeshop}>
-          <Link to="/add">Add a Coffee Shop</Link>
-        </div>
+      
 
         {!user && (
           <>
@@ -42,6 +40,10 @@ const NavBar = () => {
 
         {user && (
           <>
+            <div className={styles.addCoffeeshop}>
+          <Link to="/add">Add a Coffee Shop</Link>
+        </div> 
+        
             <Link to={`/account/${user._id}`}>{user.userName}'s 🏅</Link>
 
             <div className={styles.userMenu}>
