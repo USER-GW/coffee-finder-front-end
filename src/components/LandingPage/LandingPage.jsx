@@ -114,7 +114,7 @@ const LandingPage = (props) => {
           <input
             name="search"
             type="text"
-            placeholder="Search for a coffee shop..."
+            placeholder="Search for a coffee shop or neighbourhood..."
             value={searchInput}
             className={styles.searchInput}
             onChange={(e) => {
